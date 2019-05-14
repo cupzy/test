@@ -1,0 +1,33 @@
+#include <cmath>
+#include <iostream>
+
+class Test
+{	
+	public:
+		void func(int a, int b, int c)
+		{
+			float ans[2];
+			float d = b*b-4*a*c;
+			if (d >= 0)
+			{
+				ans[0] = (-b + sqrt(d)) / 2;
+				ans[1] = (-b - sqrt(d)) / 2;
+				std::cout << "x1 = " << ans[0] << ", x2 = " << ans[1] << "\n";
+			}
+			else
+			{
+				d = -d;
+				std::cout << "x1 = " << -b/2.0/a << "+(" << sqrt(d)/2/a << "i)" << "\n";
+				std::cout << "x1 = " << -b/2.0/a << "-(" << sqrt(d)/2/a << "i)" << "\n";
+			}
+		}
+};
+
+int main()
+{
+	Test *test = new Test;
+	int a, b, c;
+	std::cin >> a >> b >> c;
+	test->func(a, b, c);
+	return 0;
+}
